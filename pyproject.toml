@@ -1,0 +1,24 @@
+[tool.poetry]
+name = 'pytest-fixture-order'
+version = '0.1.0'
+description = 'pytest plugin to control fixture evaluation order'
+authors = ['Zach "theY4Kman" Kanzler <z@perchsecurity.com>']
+license = 'MIT'
+
+
+[tool.poetry.dependencies]
+python = '^3.6'
+pytest = ">=3.0"
+
+
+[tool.poetry.dev-dependencies]
+tox = '^3.9'
+
+
+[tool.poetry.plugins."pytest11"]
+fixture_order = "pytest_fixture_order.plugin"
+
+
+[build-system]
+requires = ['poetry>=0.12']
+build-backend = 'poetry.masonry.api'
