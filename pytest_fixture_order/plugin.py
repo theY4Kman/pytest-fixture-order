@@ -12,6 +12,17 @@ DEFAULT_EARLY_ORDER = -1
 DEFAULT_LATE_ORDER = 1
 
 
+def pytest_configure(config):
+    markers = [
+        f'order(index): mark a fixture to be evaluated in a certain order',
+        f'early: mark a fixture to be evaluated earlier than others (order index {DEFAULT_EARLY_ORDER})',
+        f'late: mark a fixture to be evaluated later than others (order index {DEFAULT_LATE_ORDER})',
+    ]
+
+    for marker in markers:
+        config.addinivalue_line('markers', marker)
+
+
 def pytest_generate_tests(metafunc):
     reorder_fixtures(metafunc)
 
@@ -70,14 +81,14 @@ def reorder_fixtures(metafunc):
                 ###
                 # Support @pytest.mark.order(12)
                 #
-                if order_mark.args:
-                    order = order_mark.args[0]
+                if order_mark.combined.args:
+                    order = order_mark.combined.args[0]
 
                 ###
                 # Support @pytest.mark.order(index=12)
                 #
-                elif 'index' in order_mark.kwargs:
-                    order = order_mark.kwargs['index']
+                elif 'index' in order_mark.combined.kwargs:
+                    order = order_mark.combined.kwargs['index']
 
             ordering.append((fixturedef.scopenum, order, original_order, fixturename))
 
