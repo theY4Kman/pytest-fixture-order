@@ -1,0 +1,22 @@
+# Changelog
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
+and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
+
+
+## [Unreleased]
+### Changed
+ - The `order(index)`, `early`, and `late` markers are now explicitly registered, to avoid warnings from pytest.
+ - The `combined` attribute is used to extract marker args/kwargs, to avoid warnings from pytest.
+ - Compatibility with pytest ~5.0.0 and ~5.1.0 is now tested.
+
+
+## [0.1.1] — 2019-04-22
+### Fixed
+ - Included README in package, for display on PyPI
+
+
+## [0.1.0] - 2019-04-22
+### Added
+ - Introduced `@pytest.mark.order(index)`, `@pytest.mark.early` (where `index = -1`), and `@pytest.mark.late` (where `index = 1`) fixture markers to influence fixture evaluation order.
