@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 
 ## [Unreleased]
+
+
+## [0.1.2] — 2019-09-03
 ### Changed
  - The `order(index)`, `early`, and `late` markers are now explicitly registered, to avoid warnings from pytest.
  - The `combined` attribute is used to extract marker args/kwargs, to avoid warnings from pytest.
