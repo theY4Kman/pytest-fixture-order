@@ -3,8 +3,23 @@ name = 'pytest-fixture-order'
 version = '0.1.2'
 description = 'pytest plugin to control fixture evaluation order'
 readme = 'README.md'
-authors = ['Zach "theY4Kman" Kanzler <z@perchsecurity.com>']
+authors = ['Zach "theY4Kman" Kanzler <they4kman@gmail.com>']
 license = 'MIT'
+
+packages = [
+    { include = "pytest_fixture_order" },
+    { include = "pytest.ini", format = "sdist" },
+    { include = "tox.ini", format = "sdist" },
+    { include = "tests", format = "sdist" },
+    { include = "LICENSE", format = "sdist" },
+    { include = "CHANGELOG.md", format = "sdist" },
+    { include = "README.md", format = "sdist" },
+]
+
+repository = 'https://github.com/theY4Kman/pytest-fixture-order'
+homepage = 'https://github.com/theY4Kman/pytest-fixture-order'
+
+keywords = ['pytest']
 
 
 [tool.poetry.dependencies]
