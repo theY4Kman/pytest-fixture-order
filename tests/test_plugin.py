@@ -2,6 +2,11 @@ from typing import Callable
 
 import pytest
 
+from pytest_fixture_order.compat import pytest_version_tuple
+
+
+IS_PYTEST3 = (3,) < pytest_version_tuple < (4,)
+
 
 @pytest.fixture(scope='session')
 def increment() -> Callable[[], int]:
@@ -47,13 +52,24 @@ class DescribeBaseline:
     def module_second(self, increment):
         return increment()
 
-    @pytest.fixture(scope='package')
-    def package_first(self, increment):
-        return increment()
+    if not IS_PYTEST3:
+        @pytest.fixture(scope='package')
+        def package_first(self, increment):
+            return increment()
 
-    @pytest.fixture(scope='package')
-    def package_second(self, increment):
-        return increment()
+        @pytest.fixture(scope='package')
+        def package_second(self, increment):
+            return increment()
+
+    # pytest 3 did not include package scope
+    else:
+        @pytest.fixture()
+        def package_first(self, increment):
+            return increment()
+
+        @pytest.fixture()
+        def package_second(self, increment):
+            return increment()
 
     @pytest.fixture(scope='session')
     def session_first(self, increment):
@@ -89,6 +105,12 @@ class DescribeBaseline:
             (session_first, 'session_first'),
             (session_second, 'session_second'),
         ]
+        if IS_PYTEST3:
+            encountered_order = [
+                (value, name)
+                for value, name in encountered_order
+                if not name.startswith('package')
+            ]
         encountered_order.sort(key=lambda t: t[0])
 
         expected = [
@@ -103,6 +125,12 @@ class DescribeBaseline:
             'first',
             'second',
         ]
+        if IS_PYTEST3:
+            expected = [
+                name
+                for name in expected
+                if not name.startswith('package')
+            ]
         actual = [name for value, name in encountered_order]
         assert expected == actual
 
