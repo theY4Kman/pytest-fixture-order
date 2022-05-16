@@ -1,3 +1,6 @@
 import pkg_resources
 
-__version__ = pkg_resources.get_distribution('pytest-fixture-order').version
+try:
+    __version__ = pkg_resources.get_distribution('pytest-fixture-order').version
+except pkg_resources.DistributionNotFound:
+    __version__ = 'dev'
