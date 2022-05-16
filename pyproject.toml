@@ -5,6 +5,12 @@ description = 'pytest plugin to control fixture evaluation order'
 readme = 'README.md'
 authors = ['Zach "theY4Kman" Kanzler <they4kman@gmail.com>']
 license = 'MIT'
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Framework :: Pytest",
+  "Intended Audience :: Developers",
+  "Topic :: Software Development :: Testing",
+]
 
 packages = [
     { include = "pytest_fixture_order" },
