@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 
 ## [Unreleased]
+### Fixed
+ - Resolve `scopenum_function` ImportErrors with pytest 7.x (see [GH#2](https://github.com/theY4Kman/pytest-fixture-order/issues/2); thank you, [@last-partizan](https://github.com/last-partizan)!)
 
 
 ## [0.1.3] — 2020-08-25
