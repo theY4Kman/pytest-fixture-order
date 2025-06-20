@@ -1,15 +1,21 @@
-[tool.poetry]
+[project]
 name = 'pytest-fixture-order'
 version = "0.1.4"
 description = 'pytest plugin to control fixture evaluation order'
+requires-python = ">=3.9"
+
 readme = 'README.md'
-authors = ['Zach "theY4Kman" Kanzler <they4kman@gmail.com>']
 license = 'MIT'
+
+authors = [
+    { name = 'Zach "theY4Kman" Kanzler', email = '<they4kman@gmail.com>' }
+]
+
 classifiers = [
-  "Development Status :: 5 - Production/Stable",
-  "Framework :: Pytest",
-  "Intended Audience :: Developers",
-  "Topic :: Software Development :: Testing",
+    "Development Status :: 5 - Production/Stable",
+    "Framework :: Pytest",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Testing",
 ]
 
 packages = [
@@ -22,25 +28,28 @@ packages = [
     { include = "README.md", format = "sdist" },
 ]
 
-repository = 'https://github.com/theY4Kman/pytest-fixture-order'
-homepage = 'https://github.com/theY4Kman/pytest-fixture-order'
 
 keywords = ['pytest']
 
+dependencies = [
+    "pytest>=3.6",
+]
 
-[tool.poetry.dependencies]
-python = '^3.6'
-pytest = ">=3.0"
+[project.urls]
+homepage = 'https://github.com/theY4Kman/pytest-fixture-order'
+repository = 'https://github.com/theY4Kman/pytest-fixture-order'
+
+[tool.poetry.group.dev.dependencies]
+tox = ">=4.0"
 
 
-[tool.poetry.dev-dependencies]
-tox = '^3.9'
-
-
-[tool.poetry.plugins."pytest11"]
+[project.entry-points."pytest11"]
 fixture_order = "pytest_fixture_order.plugin"
 
 
 [build-system]
-requires = ['poetry>=0.12']
+requires = ['poetry>=2.0']
 build-backend = 'poetry.masonry.api'
+
+[tool.poetry.dependencies]
+python = ">=3.9,<4.0"

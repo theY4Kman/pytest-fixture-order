@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 
 ## [Unreleased]
+### Changed
+- Removed support for python < 3.9 as these are all end-of-life
+- Change to use standardised dependency tables in pyproject.toml rather than poetry specific tables (see https://python-poetry.org/docs/dependency-specification/).
+  Require poetry >= 2.0 in the development environment to facilitate this.
+- Bump minimum tox to 4.0
+- Switch to use importlib instead of pkg_resouces to extract metadata.
+  No need to support Python < 3.8 so no fallback option is provided.
 
 
 ## [0.1.4] — 2022-05-16
