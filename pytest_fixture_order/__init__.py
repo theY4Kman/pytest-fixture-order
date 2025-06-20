@@ -1,6 +1,6 @@
-import pkg_resources
+from importlib.metadata import version, PackageNotFoundError
 
 try:
-    __version__ = pkg_resources.get_distribution('pytest-fixture-order').version
-except pkg_resources.DistributionNotFound:
+    __version__ = version('pytest-fixture-order')
+except PackageNotFoundError:
     __version__ = 'dev'
