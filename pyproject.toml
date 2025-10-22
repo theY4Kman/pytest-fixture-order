@@ -1,6 +1,6 @@
 [tool.poetry]
 name = 'pytest-fixture-order'
-version = "0.1.4"
+version = "0.1.5"
 description = 'pytest plugin to control fixture evaluation order'
 readme = 'README.md'
 authors = ['Zach "theY4Kman" Kanzler <they4kman@gmail.com>']

@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 
 ## [Unreleased]
+
+
+## [0.1.5] — 2025-10-22
 ### Fixed
  - Use `importlib.metadata` instead of `pkg_resources` for version detection, ensuring compat with Python 3.12+
 
