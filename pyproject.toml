@@ -29,11 +29,11 @@ keywords = ['pytest']
 
 
 [tool.poetry.dependencies]
-python = '^3.6'
+python = '^3.9'
 pytest = ">=3.0"
 
 
-[tool.poetry.dev-dependencies]
+[tool.poetry.group.dev.dependencies]
 tox = '^3.9'
 
 
